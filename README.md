@@ -42,7 +42,7 @@ Browse to http://localhost:8080 (Make sure port 8080 is not used by other proces
 
 1. Unlocking Jenkins
 
-When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
+...When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
 
 From the Jenkins console log output, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks) or alternatively use the command to print the password at console: 
 
