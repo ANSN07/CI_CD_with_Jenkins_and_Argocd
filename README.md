@@ -42,15 +42,15 @@ Browse to http://localhost:8080 (Make sure port 8080 is not used by other proces
 
 1. Unlocking Jenkins
 
-...When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
+- When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
 
-From the Jenkins console log output, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks) or alternatively use the command to print the password at console: 
+- From the Jenkins console log output, copy the automatically-generated alphanumeric password (between the 2 sets of asterisks) or alternatively use the command to print the password at console: 
 
 ```shell
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-[This password also serves as the default administrator account’s password (with username "admin") if you happen to skip the subsequent user-creation step in the setup wizard.]
+- This password also serves as the default administrator account’s password (with username "admin") if you happen to skip the subsequent user-creation step in the setup wizard.
 
 2. Select "Install suggested plugins"
 
