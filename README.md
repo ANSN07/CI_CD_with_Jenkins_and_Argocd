@@ -159,4 +159,8 @@ By entering the appropriate Worker Node IP address and the designated NodePort i
 ---
 ## References
 
-https://www.jenkins.io/doc/book/installing/linux/#fedora
+- Jenkins setup on Fedora: https://www.jenkins.io/doc/book/installing/linux/#fedora
+- ArgoCD documentation: https://argo-cd.readthedocs.io/en/stable/
+- Defining ArgoCD projects: https://argo-cd.readthedocs.io/en/stable/user-guide/projects/
+- Managing personal access token in GitHub: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+- Connecting private repositories in ArgoCD: https://argo-cd.readthedocs.io/en/stable/user-guide/private-repositories/
