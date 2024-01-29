@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        REGISTRY_CREDENTIAL = 'dockerhub-credentials'
+        REGISTRY_CREDENTIAL = 'dockerhub_credentials'
         IMAGE_TAG = "${BUILD_NUMBER}"
         DOCKERHUB_USERNAME = 'alnx551'
         APP_NAME = 'python-app'
