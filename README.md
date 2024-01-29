@@ -148,7 +148,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 5. Repo URL: where we have the manifest file (deployment.yaml)
 6. Revision: <branch-name>
 7. Path to manifest file : ./
-8. Cluster URL: https://kubernetes.default.svc
+8. Cluster URL: https://kubernetes.default.svc (Application's K8s API server address - as deploying to the same cluster that Argo CD is running in)
 9. Namespace: default
 10. Click create
 
