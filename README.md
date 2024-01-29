@@ -131,7 +131,7 @@ kubectl port-forward svc/argocd-server -n argocd 8081:443
 [use 8081 as Jenkins already running in 8080]
 
 Access ArgoCD Dashboard from your local machine using the following link:
-http://127.0.0.1:8080
+http://127.0.0.1:8081
 
 To get the password you may execute the below command in your Kubernetes cluster. (username is admin):
 
