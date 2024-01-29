@@ -88,7 +88,7 @@ To install Docker Pipeline Plugin (enables you to add Docker commands in Jenkins
 ## Kind cluster setup
 
 ```shell
-kind create cluster --name=<cluster-name>
+kind create cluster
 ```
 
 ## Clone Repo
