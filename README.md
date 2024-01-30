@@ -109,6 +109,8 @@ The repository will need to be public for the rest of the tutorial to work prope
 
 [Use console output to see the output]
 
+---
+
 ## Installing ArgoCD in Kubernetes Cluster
 
 ```shell
@@ -155,6 +157,39 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 As we have defined the nodeport service type in the manifest file, we can access the pod using the node port. <WorkerNodeIP:30001>
 
 By entering the appropriate Worker Node IP address and the designated NodePort in a web browser, we can establish a connection to the Pod running our application.
+
+---
+
+## Trigger Jenkins on Github push event
+
+### Installing and Running Ngrok
+Ngrok is a reverse proxy that allows traffic to be redirected from the generated url to wherever your local server is running. 
+
+Go to https://ngrok.com/download and install ngrok.
+
+### Add auth token
+
+Sign up for an ngrok account and copy the auth token from the dashboard.
+
+```shell
+ngrok config add-authtoken <token>
+```
+### Start a tunnel
+
+```shell
+ngrok http 8080
+```
+Here, 8080 which will point to your Jenkins server.
+You will receive your proxy hostname after running this command and it should look like this:
+
+Forwarding http://xxxxx.ngrok.io -> http://localhost:8080
+
+### Setting Up Github Webhooks
+
+1. Navigate to your Github repository that you want Jenkins to monitor for pushes and click on Settings > Webhooks.
+2. Add jenkins server url(copied from the above step followed by "/github-webhook", for example http://xxxxx.ngrok.io/github-webhook) as the payload url.
+3. Select "Just the push event"
+4. Click "Add webhook"
 
 ---
 ## References
