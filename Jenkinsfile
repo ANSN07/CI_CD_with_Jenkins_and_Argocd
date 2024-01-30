@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Source') {
             steps {
-                git 'https://github.com/ANSN07/python.git'
+                git 'https://github.com/ANSN07/CI_CD_with_Jenkins_and_Argocd'
             }
         }
         stage('Build Docker Image') {
@@ -45,7 +45,7 @@ pipeline {
                     git add deployment.yaml
                     git commit -m 'Updated the deployment file: ${BUILD_NUMBER}' """
                     withCredentials([usernamePassword(credentialsId: 'github_credentials', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                        sh "git push https://$user:$pass@github.com/ANSN07/python.git master"
+                        sh "git push https://$user:$pass@github.com/ANSN07/CI_CD_with_Jenkins_and_Argocd.git master"
                     }
                 }
             }
