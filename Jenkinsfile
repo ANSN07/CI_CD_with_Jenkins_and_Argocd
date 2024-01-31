@@ -40,7 +40,7 @@ pipeline {
 					sh "git config user.name Alka" // set git config
 					sh "git add deployment.yaml" // add the updated manifest to git
 					sh "git commit -m 'Updated the deployment file: ${BUILD_NUMBER}'" // commit the changes
-					sh "git push https://$user:$pass@github.com/ANSN07/Flask-App-Manifests.git master" // push changes
+					sh "git push https://$user:$pass@github.com/ANSN07/Flask-App-Manifests.git main" // push changes
 				}
 			}
 	    }
