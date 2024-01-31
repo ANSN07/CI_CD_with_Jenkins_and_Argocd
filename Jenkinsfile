@@ -29,26 +29,17 @@ pipeline {
                 }
             }
         }
-        stage('Modify the image in Kubernetes deployment file') {
-            steps {
-                sh 'cat deployment.yaml'
-                sh "sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml"
-                sh 'cat deployment.yaml'
-            }
-        }
-        stage('Push the changed deployment file to Git') {
-            steps {
-                script {
-                    sh """
-                    git config --global user.name "Alka"
-                    git config --global user.email "20100677@mail.wit.ie"
-                    git add deployment.yaml
-                    git commit -m 'Updated the deployment file: ${BUILD_NUMBER}' """
-                    withCredentials([usernamePassword(credentialsId: 'github_credentials', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                        sh "git push https://$user:$pass@github.com/ANSN07/CI_CD_with_Jenkins_and_Argocd.git master"
-                    }
-                }
-            }
-        }
+        withCredentials([usernamePassword(credentialsId: 'github_credentials', passwordVariable: 'pass', usernameVariable: 'user')]) {
+			sh "git clone https://github.com/ANSN07/Flask-App-Manifests.git" // clone the repo
+			sh "cd Flask-App-Manifests"
+			dir('Flask-App-Manifests') {
+				sh "sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml"
+				sh "git config user.email 20100677@mail.wit.ie" // set git config
+				sh "git config user.name Alka" // set git config
+				sh "git add deployment.yaml" // add the updated manifest to git
+				sh "git commit -m 'Updated the deployment file: ${BUILD_NUMBER}'" // commit the changes
+				sh "git push https://$user:$pass@github.com/ANSN07/Flask-App-Manifests.git master" // push changes
+			}
+		}
     }
 }
