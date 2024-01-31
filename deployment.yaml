@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-app-container
-        image: alnx551/python-app:129
+        image: alnx551/python-app:130
         ports:
         - containerPort: 5000
 ---
