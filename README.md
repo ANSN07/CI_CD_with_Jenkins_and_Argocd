@@ -182,12 +182,12 @@ ngrok http 8080
 Here, 8080 which will point to your Jenkins server.
 You will receive your proxy hostname after running this command and it should look like this:
 
-Forwarding http://xxxxx.ngrok.io -> http://localhost:8080
+Forwarding http://xxxxx.ngrok-free.app -> http://localhost:8080 
 
 ### Setting Up Github Webhooks
 
 1. Navigate to your Github repository that you want Jenkins to monitor for pushes and click on Settings > Webhooks.
-2. Add jenkins server url(copied from the above step followed by "/github-webhook", for example http://xxxxx.ngrok.io/github-webhook) as the payload url.
+2. Add jenkins server url(copied from the above step followed by "/github-webhook", for example http://xxxxx.ngrok-free.app/github-webhook) as the payload url.
 3. Select "Just the push event"
 4. Click "Add webhook"
 
