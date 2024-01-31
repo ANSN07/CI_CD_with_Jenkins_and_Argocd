@@ -81,7 +81,7 @@ To install Docker Pipeline Plugin (enables you to add Docker commands in Jenkins
 - GitHub access token must be used as the GitHub password as Jenkins need to do a GitHub push in this case 
 - use ID as github_credentials
 
-
+  
 ---
 
 
@@ -93,7 +93,9 @@ kind create cluster
 
 ## Clone Repo
 
-The repository will need to be public for the rest of the tutorial to work properly. You will push your Jenkinsfile, application files, and deployment files to the new GitHub repository. 
+The repository will need to be public for the rest of the tutorial to work properly. You will push your Jenkinsfile, application files, and deployment files to the GitHub repository. 
+
+Clone repos https://github.com/ANSN07/Flask-App-Manifests and https://github.com/ANSN07/CI_CD_with_Jenkins_and_Argocd
 
 ## Create Jenkins pipeline
 
