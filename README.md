@@ -192,6 +192,16 @@ Forwarding http://xxxxx.ngrok-free.app -> http://localhost:8080
 4. Click "Add webhook"
 
 ---
+
+## Accessing the application
+
+```shell
+kubectl port-forward svc/flask-app-svc 9090:80
+```
+
+You can access the application at http://localhost:9090
+
+---
 ## References
 
 - Jenkins setup on Fedora: https://www.jenkins.io/doc/book/installing/linux/#fedora
