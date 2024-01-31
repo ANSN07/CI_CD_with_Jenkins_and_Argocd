@@ -29,7 +29,7 @@ pipeline {
                 }
             }
         }
-	stage('Modify') {
+	stage('Modify the image and push the changed deployment file to Git') {
             steps {
 	        withCredentials([usernamePassword(credentialsId: 'github_credentials', passwordVariable: 'pass', usernameVariable: 'user')]) {
 			sh "rm -rf Flask-App-Manifests"	
