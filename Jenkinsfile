@@ -32,7 +32,8 @@ pipeline {
 	stage('Modify') {
             steps {
 	        withCredentials([usernamePassword(credentialsId: 'github_credentials', passwordVariable: 'pass', usernameVariable: 'user')]) {
-				sh "git clone https://github.com/ANSN07/Flask-App-Manifests.git" // clone the repo
+			sh "rm -rf Flask-App-Manifests"	
+			sh "git clone https://github.com/ANSN07/Flask-App-Manifests.git" // clone the repo
 				sh "cd Flask-App-Manifests"
 				dir('Flask-App-Manifests') {
 					sh "sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml"
