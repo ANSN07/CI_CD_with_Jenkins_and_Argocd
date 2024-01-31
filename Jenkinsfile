@@ -29,17 +29,21 @@ pipeline {
                 }
             }
         }
-        withCredentials([usernamePassword(credentialsId: 'github_credentials', passwordVariable: 'pass', usernameVariable: 'user')]) {
-			sh "git clone https://github.com/ANSN07/Flask-App-Manifests.git" // clone the repo
-			sh "cd Flask-App-Manifests"
-			dir('Flask-App-Manifests') {
-				sh "sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml"
-				sh "git config user.email 20100677@mail.wit.ie" // set git config
-				sh "git config user.name Alka" // set git config
-				sh "git add deployment.yaml" // add the updated manifest to git
-				sh "git commit -m 'Updated the deployment file: ${BUILD_NUMBER}'" // commit the changes
-				sh "git push https://$user:$pass@github.com/ANSN07/Flask-App-Manifests.git master" // push changes
+	stage('Modify') {
+            steps {
+	        withCredentials([usernamePassword(credentialsId: 'github_credentials', passwordVariable: 'pass', usernameVariable: 'user')]) {
+				sh "git clone https://github.com/ANSN07/Flask-App-Manifests.git" // clone the repo
+				sh "cd Flask-App-Manifests"
+				dir('Flask-App-Manifests') {
+					sh "sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml"
+					sh "git config user.email 20100677@mail.wit.ie" // set git config
+					sh "git config user.name Alka" // set git config
+					sh "git add deployment.yaml" // add the updated manifest to git
+					sh "git commit -m 'Updated the deployment file: ${BUILD_NUMBER}'" // commit the changes
+					sh "git push https://$user:$pass@github.com/ANSN07/Flask-App-Manifests.git master" // push changes
+				}
 			}
-		}
+	    }
+	}
     }
 }
